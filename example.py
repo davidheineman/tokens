@@ -5,7 +5,10 @@ tokenizer = Tokenizer(BPE())
 
 from tokenizers.trainers import BpeTrainer
 
-trainer = BpeTrainer(special_tokens=["[UNK]", "[CLS]", "[SEP]", "[PAD]", "[MASK]"])
+trainer = BpeTrainer(
+    special_tokens=["[UNK]", "[CLS]", "[SEP]", "[PAD]", "[MASK]"], 
+    vocab_size=100_000
+)
 
 # tokenizer.train(
 #     files=[
@@ -28,3 +31,5 @@ tokenizer.train(
 output = tokenizer.encode("Hello, y'all! How are you 😁 ?")
 print(output.tokens)
 # ["Hello", ",", "y", "'", "all", "!", "How", "are", "you", "[UNK]", "?"]
+
+tokenizer.save("s1.json", pretty=True)
