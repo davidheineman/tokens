@@ -1,3 +1,5 @@
+Pulls huggingface datasets and trains tokenizers on those datasets.
+
 ```sh
 # for tokenization
 pip install tokenizers datasets "huggingface_hub[cli]" ipykernel ipywidgets pandas pyarrow
