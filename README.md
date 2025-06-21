@@ -1,4 +1,4 @@
-Pulls huggingface datasets and trains tokenizers on those datasets.
+Train tokenizers on HF datasets and hot-swap the tokenizer of a model.
 
 ### Setup
 
@@ -8,12 +8,22 @@ pip install tokenizers datasets "huggingface_hub[cli]" ipykernel ipywidgets pand
 
 # for training
 pip install transformers torch
+
+# for adaptation
+git clone -b davidh/tokenizer https://github.com/allenai/open-instruct
+pip install -e open-instruct/.
 ```
 
-### Train tokenizer
+### Train new tokenizers
 ```sh
 # download wikitext
 huggingface-cli download Salesforce/wikitext --repo-type dataset --local-dir wikitext/
+
+# download data
+python src/pull_data.py
+
+# train new tokenizers
+python src/train_tokenizer.py
 ```
 
 ### SFT 7B
