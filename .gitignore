@@ -3,3 +3,5 @@
 *.json
 .venv/
 wikitext/
+open-instruct/
+*.pyc
